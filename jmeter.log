@@ -1,0 +1,39 @@
+2019-05-29 21:04:51,607 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2019-05-29 21:04:51,643 INFO o.a.j.JMeter: Loading user properties from: /Users/wecashtester/Documents/apache-jmeter-5.1.1/bin/user.properties
+2019-05-29 21:04:51,644 INFO o.a.j.JMeter: Loading system properties from: /Users/wecashtester/Documents/apache-jmeter-5.1.1/bin/system.properties
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: Version 5.1.1 r1855137
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: java.version=1.8.0_181
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: os.name=Mac OS X
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: os.arch=x86_64
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: os.version=10.13.6
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-05-29 21:04:51,662 INFO o.a.j.JMeter: java.awt.headless=null
+2019-05-29 21:04:51,663 INFO o.a.j.JMeter: Max memory     =1073741824
+2019-05-29 21:04:51,663 INFO o.a.j.JMeter: Available Processors =4
+2019-05-29 21:04:51,668 INFO o.a.j.JMeter: Default Locale=English (EN)
+2019-05-29 21:04:51,668 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2019-05-29 21:04:51,668 INFO o.a.j.JMeter: JMeterHome=/Users/wecashtester/Documents/apache-jmeter-5.1.1
+2019-05-29 21:04:51,668 INFO o.a.j.JMeter: user.dir  =/Users/wecashtester/Desktop/TesterHome/java-learn
+2019-05-29 21:04:51,668 INFO o.a.j.JMeter: PWD       =/Users/wecashtester/Desktop/TesterHome/java-learn
+2019-05-29 21:04:51,674 INFO o.a.j.JMeter: IP: 172.17.3.121 Name: wecashtesterdeMacBook-Pro.local FullName: 172.17.3.121
+2019-05-29 21:04:54,616 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2019-05-29 21:04:54,634 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2019-05-29 21:04:54,634 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2019-05-29 21:04:54,724 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2019-05-29 21:04:55,717 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=mac_os_x-a43178054f4b0ab54ee14f7aed51bcb7-gui
+2019-05-29 21:04:57,608 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-05-29 21:04:57,609 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-05-29 21:04:57,609 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-05-29 21:04:57,610 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-05-29 21:04:57,610 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2019-05-29 21:04:57,610 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2019-05-29 21:04:58,040 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2019-05-29 21:04:58,040 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/wecashtester/Documents/apache-jmeter-5.1.1/bin/proxyserver.jks
+2019-05-29 21:04:58,209 INFO o.a.j.s.FileServer: Default base='/Users/wecashtester/Desktop/TesterHome/java-learn'
+2019-05-29 21:04:58,487 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2019-05-29 21:04:58,487 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2019-05-29 21:04:58,487 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2019-05-29 21:04:58,487 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2019-05-29 21:04:59,479 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.3, jmeter-core=5.1.1, jmeter-ftp=5.1.1, jmeter-http=5.1.1, jmeter-jdbc=5.1.1, jmeter-jms=5.1.1, jmeter-junit=5.1.1, jmeter-java=5.1.1, jmeter-ldap=5.1.1, jmeter-mail=5.1.1, jmeter-mongodb=5.1.1, jmeter-native=5.1.1, jmeter-tcp=5.1.1, jmeter-components=5.1.1]

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leepuvier.unittest.orm.mybatis.mapper.JunitTestMapper">
+
+    <resultMap id="resultMap" type="com.leepuvier.unittest.orm.mybatis.entity.JunitTestDO">
+        <result property="id" column="id"></result>
+        <result property="caseName" column="case_name"></result>
+        <result property="caseResult" column="case_result"></result>
+        <result property="caseResultDec" column="case_result_decsp"></result>
+        <result property="caseStartTime" column="case_start_time"></result>
+        <result property="caseEndTime" column="case_end_time"></result>
+    </resultMap>
+
+    <sql id="searchColumn">
+      id,case_name,case_result,case_result_decsp,case_start_time,case_end_time
+    </sql>
+
+    <select id="getJunitTestById" resultMap="resultMap">
+        select
+        <include refid="searchColumn"></include>
+        from case_unittest where id = #{id}
+    </select>
+
+    <select id="getJunitTestByCaseName" resultMap="resultMap">
+        select
+        <include refid="searchColumn"></include>
+        from case_unittest where case_name = #{caseName}
+    </select>
+
+    <select id="getJunitTestList" resultMap="resultMap">
+        select
+        <include refid="searchColumn"></include>
+        from case_unittest
+        where case_result = #{caseResult}
+        order by id desc
+    </select>
+
+    <insert id="inserJunitTest" useGeneratedKeys="true" keyProperty="id">
+        insert into case_unittest
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+              id,
+            </if>
+            <if test="caseName != null">
+              case_name,
+            </if>
+            <if test="caseResult != null">
+              case_result,
+            </if>
+            <if test="caseResultDec != null">
+              case_result_decsp,
+            </if>
+            <if test="caseStartTime != null">
+              case_start_time,
+            </if>
+            <if test="caseEndTime != null">
+              case_end_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" prefixOverrides=",">
+            <if test="id != null">
+              #{id},
+            </if>
+            <if test="caseName != null">
+              #{caseName},
+            </if>
+            <if test="caseResult != null">
+              #{caseResult},
+            </if>
+            <if test="caseResultDec != null">
+              #{caseResultDec}
+            </if>
+            <!--<if test="caseStartTime != null">-->
+              <!--#{caseStartTime},-->
+            <!--</if>-->
+            <!--<if test="caseEndTime != null">-->
+              <!--#{caseEndTime}-->
+            <!--</if>-->
+        </trim>
+    </insert>
+
+    <update id="updateById">
+        update case_unittest
+        <set>
+            <if test="caseName != null">
+                case_name = #{caseName},
+            </if>
+            <if test="caseResult != null">
+                case_result = #{caseResult},
+            </if>
+            <if test="caseResultDec != null">
+                case_result_decsp = #{caseResultDec},
+            </if>
+            <if test="caseStartTime != null">
+                case_start_time = #{caseStartTime},
+            </if>
+            <if test="caseEndTime != null">
+               case_end_time = #{caseEndTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

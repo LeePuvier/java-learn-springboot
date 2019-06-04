@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: test
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dev?useSSL=false&&charset=utf8&&loc=Asia%2FShanghai
+    username: root
+    password: 123123123
