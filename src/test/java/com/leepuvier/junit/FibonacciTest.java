@@ -15,9 +15,8 @@ import static org.junit.Assert.assertEquals;
  * @ContentUse ：Junit 参数化测试
  */
 
-
 @RunWith( Parameterized.class )
-public class FibonacciTest {
+public class FibonacciTest{
 
     @Parameterized.Parameters
     public static Collection<Object[]> parameterInfo(){

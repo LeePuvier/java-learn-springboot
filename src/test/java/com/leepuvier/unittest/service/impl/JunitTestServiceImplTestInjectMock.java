@@ -3,8 +3,8 @@ package com.leepuvier.unittest.service.impl;
 import com.leepuvier.unittest.orm.mybatis.entity.JunitTestDO;
 import com.leepuvier.unittest.orm.mybatis.mapper.JunitTestMapper;
 import com.leepuvier.unittest.service.JunitTestService;
-import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,10 +15,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.when;
+
 @SpringBootTest
 @RunWith( SpringRunner.class )
-@Log4j2
-public class JunitTestServiceImplTestInjectMock {
+public class JunitTestServiceImplTestInjectMock{
 
     @InjectMocks
     // 将所有的mock类注入到对象实例
@@ -27,26 +28,46 @@ public class JunitTestServiceImplTestInjectMock {
     @Mock
     private JunitTestMapper junitTestMapper;
 
+    @Before
+    public void setUpHotAppData() {
+        List<JunitTestDO> junitTestDOList = new ArrayList<>();
+
+        JunitTestDO junitTestDO1 = new JunitTestDO();
+
+        junitTestDO1.setId(77);
+        junitTestDO1.setCaseResult(3);
+        junitTestDO1.setCaseName("Test_77");
+        junitTestDO1.setCaseResultDec("Test_77");
+
+        JunitTestDO junitTestDO2 = new JunitTestDO();
+        junitTestDO2.setId(99);
+        junitTestDO2.setCaseResult(3);
+        junitTestDO2.setCaseName("Test_99");
+        junitTestDO2.setCaseResultDec("Test_99");
+
+        junitTestDOList.add(junitTestDO1);
+        junitTestDOList.add(junitTestDO2);
+        when(junitTestMapper.getJunitTestList(3)).thenReturn(junitTestDOList);
+        when(junitTestMapper.getJunitTestById(77)).thenReturn(junitTestDO1);
+        when(junitTestMapper.getJunitTestByCaseName("Test_99")).thenReturn(junitTestDO2);
+    }
+
     @Test
     public void getJunitTestById() {
+        JunitTestDO junitTestDO = junitTestService.getJunitTestById(77);
+        Assert.assertEquals("Test_77", junitTestDO.getCaseName());
     }
 
     @Test
     public void getJunitTestByCaseName() {
+        JunitTestDO junitTestDO = junitTestService.getJunitTestByCaseName("Test_99");
+        Assert.assertEquals("3", junitTestDO.getCaseResult().toString());
     }
 
     @Test
     public void getJunitTestList() {
-        List<JunitTestDO> junitTestDOList = new ArrayList<>();
-        JunitTestDO junitTestDO1 = new JunitTestDO();
-        junitTestDO1.setId(9999);
-        junitTestDO1.setCaseResult(3);
-        JunitTestDO junitTestDO2 = new JunitTestDO();
-        junitTestDO2.setId(8888);
-        junitTestDO2.setCaseResult(3);
-        junitTestDOList.add(junitTestDO1);
-        junitTestDOList.add(junitTestDO2);
-        int infoSize = junitTestService.getJunitTestList(1).size();
+
+        int infoSize = junitTestService.getJunitTestList(3).size();
         Assert.assertEquals(2, infoSize);
 
 
