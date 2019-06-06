@@ -1,5 +1,6 @@
 package com.leepuvier.junit;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,8 +16,9 @@ import static org.junit.Assert.assertEquals;
  * @ContentUse ：Junit 参数化测试
  */
 
+@Slf4j
 @RunWith( Parameterized.class )
-public class FibonacciTest{
+public class FibonacciTest extends JunitBaseTest{
 
     @Parameterized.Parameters
     public static Collection<Object[]> parameterInfo(){
