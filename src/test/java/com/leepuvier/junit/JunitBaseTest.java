@@ -51,7 +51,7 @@ public class JunitBaseTest {
 
     @After
     public void tearDown() throws Exception {
-        sw.stop();
+//        sw.stop();
         log.info("测试结束-----------------");
     }
 
