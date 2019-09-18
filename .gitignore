@@ -27,3 +27,14 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+
+*.log
+*.eml
+out
+target
+.metadata
+*.DS_Store
+*.lock
+dubbo-registry.propertieslogs
+logs
+log

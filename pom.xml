@@ -17,6 +17,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <xmlFileName>src/test/source/testNG.xml</xmlFileName>
     </properties>
 
 
@@ -118,13 +119,29 @@
             <artifactId>org.jacoco.core</artifactId>
             <version>0.8.4</version>
         </dependency>
-
+        <!--TestNG-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+        <!--ReportNG-->
+        <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+            <!-- 排除testNG依赖 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
@@ -162,6 +179,28 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!--<version>6.14.3</version>-->
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${xmlFileName}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                    <forkMode>always</forkMode>
+                </configuration>
+            </plugin>
             <!--配置Jacoco-->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -171,8 +210,8 @@
                     <destFile>target/coverage-reports/jacoco-unit.exec</destFile>
                     <dataFile>target/coverage-reports/jacoco-unit.exec</dataFile>
                     <includes>
-                        <include>**/service/**</include>
-                        <include>**/controller/**</include>
+                        <!--<include>**/junit/Fibonacci.class</include>-->
+                        <include>**/controller/CompanyControl.class</include>
                         <!--<include>**/service/impl/*.class</include>-->
                     </includes>
                     <!-- rules里面指定覆盖规则 -->
@@ -184,19 +223,19 @@
                                 <limit implementation="org.jacoco.report.check.Limit">
                                     <counter>METHOD</counter>
                                     <value>COVEREDRATIO</value>
-                                    <minimum>0.50</minimum>
+                                    <minimum>0.10</minimum>
                                 </limit>
                                 <!-- 指定分支覆盖到50% -->
                                 <limit implementation="org.jacoco.report.check.Limit">
                                     <counter>BRANCH</counter>
                                     <value>COVEREDRATIO</value>
-                                    <minimum>0.50</minimum>
+                                    <minimum>0.10</minimum>
                                 </limit>
                                 <!-- 指定类覆盖到100%，不能遗失任何类 -->
                                 <limit implementation="org.jacoco.report.check.Limit">
                                     <counter>CLASS</counter>
                                     <value>MISSEDCOUNT</value>
-                                    <maximum>0</maximum>
+                                    <maximum>1</maximum>
                                 </limit>
                             </limits>
                         </rule>
