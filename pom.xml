@@ -207,8 +207,8 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.4</version>
                 <configuration>
-                    <destFile>target/coverage-reports/jacoco-unit.exec</destFile>
-                    <dataFile>target/coverage-reports/jacoco-unit.exec</dataFile>
+                    <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+                    <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
                     <includes>
                         <!--<include>**/junit/Fibonacci.class</include>-->
                         <include>**/controller/CompanyControl.class</include>
@@ -257,6 +257,10 @@
                     </execution>
                     <!--这个report:对代码进行检测，然后生成index.html在 target/site/index.html中可以查看检测的详细结果-->
                     <execution>
+                        <configuration>
+                            <dataFile>${basedir}/target/coverage-reports/jacoco.exec</dataFile>
+                            <outputDirectory>${basedir}/target/coverage-reports</outputDirectory>
+                        </configuration>
                         <id>jacoco-site</id>
                         <!--<phase>package</phase>-->
                         <phase>test</phase>
