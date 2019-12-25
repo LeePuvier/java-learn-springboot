@@ -38,3 +38,5 @@ target
 dubbo-registry.propertieslogs
 logs
 log
+target
+test-output
