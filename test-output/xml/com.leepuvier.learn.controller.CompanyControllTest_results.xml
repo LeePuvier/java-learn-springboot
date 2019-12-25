@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CompanyControllTest"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.146">
+  <properties />
+  
+  
+            <testcase name="getHello" time="0.146" classname="com.leepuvier.learn.controller.CompanyControllTest" />
+      
+</testsuite>

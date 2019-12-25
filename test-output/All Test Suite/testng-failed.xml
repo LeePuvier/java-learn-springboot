@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" guice-stage="DEVELOPMENT" name="Failed suite [All Test Suite]" parallel="classes">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <test thread-count="4" name="CompanyControllTest(failed)" parallel="classes">
+    <classes>
+      <class name="com.leepuvier.learn.controller.CompanyControllTest">
+        <methods>
+          <include name="getHello"/>
+        </methods>
+      </class> <!-- com.leepuvier.learn.controller.CompanyControllTest -->
+    </classes>
+  </test> <!-- CompanyControllTest(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->
